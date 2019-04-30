@@ -1,0 +1,5 @@
+{
+  "assembly_name": "Foo.Bar",
+  "root_namespace": "{{ cookiecutter.assembly_name }}",
+  "author": "vivala"
+}
