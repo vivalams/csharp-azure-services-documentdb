@@ -146,9 +146,6 @@
     <Analyzer Include="$(PackagePath)\Microsoft.CodeQuality.Analyzers.2.9.2\analyzers\dotnet\cs\Humanizer.dll" />
     <Analyzer Include="$(PackagePath)\Microsoft.CodeQuality.Analyzers.2.9.2\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
     <Analyzer Include="$(PackagePath)\Microsoft.CodeQuality.Analyzers.2.9.2\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
-    <Analyzer Include="$(PackagePath)\Microsoft.Internal.Analyzers.2.6.1\analyzers\dotnet\cs\Internal.Analyzers.dll" />
-    <Analyzer Include="$(PackagePath)\Microsoft.Internal.Analyzers.2.6.1\analyzers\dotnet\cs\Internal.Analyzers.Utilities.dll" />
-    <Analyzer Include="$(PackagePath)\Microsoft.Internal.Analyzers.2.6.1\analyzers\dotnet\cs\Internal.CSharp.Analyzers.dll" />
     <Analyzer Include="$(PackagePath)\Microsoft.NetCore.Analyzers.2.9.2\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
     <Analyzer Include="$(PackagePath)\Microsoft.NetCore.Analyzers.2.9.2\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
     <Analyzer Include="$(PackagePath)\Microsoft.NetFramework.Analyzers.2.9.2\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
