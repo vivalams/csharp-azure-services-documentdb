@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>{{ cookiecutter.assembly_name }}.Api</name>
+    </assembly>
+    <members>
+	
+        <member name="T:{{ cookiecutter.assembly_name }}.Api.Settings.KeyVaultConfig">
+            <summary>
+            Class KeyVaultConfig.
+            </summary>
+        </member>
+        <member name="P:{{ cookiecutter.assembly_name }}.Api.Settings.KeyVaultConfig.VaultBaseUrl">
+            <summary>
+            Gets or sets the vault base URI.
+            </summary>
+            <value>The vault base URI.</value>
+        </member>
+        <member name="P:{{ cookiecutter.assembly_name }}.Api.Settings.KeyVaultConfig.EnableSecureConfig">
+            <summary>
+            Gets or sets a value indicating whether remote keyvault values should be used.
+            </summary>
+            <value><c>true</c> if remote keyvault configuration values should be used;
+            otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:{{ cookiecutter.assembly_name }}.Api.Startup">
+            <summary>
+            Startup class for Learner Record endpoints
+            </summary>
+        </member>
+        <member name="F:{{ cookiecutter.assembly_name }}.Api.Startup.TokenSchemeName">
+            <summary>
+            Custom token authentication scheme name
+            </summary>
+        </member>
+        <member name="P:{{ cookiecutter.assembly_name }}.Api.Startup.Configuration">
+            <summary>
+            Gets the configuration object
+            </summary>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:{{ cookiecutter.assembly_name }}.Api.Startup"/> class.
+            </summary>
+            <param name="env">Hosting environment</param>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Collection of Services to add to container</param>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Application Builder Service</param>
+            <param name="env">Hosting Environment Service</param>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            ConfigureContainer is where you can register things directly
+            with Autofac. This runs after ConfigureServices so the things
+            here will override registrations made in ConfigureServices.
+            Don't build the container; that gets done for you. If you
+            need a reference to the container, you need to use the
+            "Without ConfigureContainer" mechanism shown later.
+            </summary>
+            <param name="builder">Service Builder Container</param>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.ConfigureEventBus(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Configure eventbus 
+            </summary>
+            <param name="app">Application builder instance</param>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.GetAssemblies">
+            <summary>
+            Gets List of Assemblies being used
+            </summary>
+            <returns> List of Assemblies being used in the API</returns>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.IsCandidateCompilationLibrary(Microsoft.Extensions.DependencyModel.RuntimeLibrary)">
+            <summary>
+            Determines if this project contains all the dependent assemblies
+            </summary>
+            <param name="compilationLibrary">RuntimeLibrary to check against our current Service</param>
+            <returns>Boolean of whether the assembly is used in this service</returns>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.BuildConfiguration">
+            <summary>
+            Builds the configuration.
+            </summary>
+            <returns>An IConfigurationRoot.</returns>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.GetXmlCommentsPath">
+            <summary>
+            Fetches the Xml comments file path for swagger
+            </summary>
+            <returns>Xml comments file path as string</returns>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Startup.AddEventBus(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Add servicebus based on the appsettings
+            </summary>
+            <param name="services">Service collection</param>
+            <param name="config">Configuration</param>
+        </member>
+		        <member name="T:{{ cookiecutter.assembly_name }}.Api.Program">
+            <summary>
+            The program class
+            </summary>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Program.Main(System.String[])">
+            <summary>
+            Build web bootstrap
+            </summary>
+            <param name="args">String array of arguments</param>
+        </member>
+        <member name="M:{{ cookiecutter.assembly_name }}.Api.Program.BuildWebHost(System.String[])">
+            <summary>
+            Build web host
+            </summary>
+            <param name="args">String array of Arguments</param>
+            <returns>An <see cref="T:Microsoft.AspNetCore.Hosting.IWebHost"/></returns>
+        </member>
+</doc>
