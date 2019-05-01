@@ -11,13 +11,12 @@ namespace {{ cookiecutter.assembly_name }}.Api.Settings
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using {{ cookiecutter.assembly_name }}.Api.Configuration;
-
+	
     /// <summary>
     /// The settings for cosmos DB
     /// </summary>
     [ExcludeFromCodeCoverage]
-    public class CosmosDbSettings : IDocumentDbSettings
+    public class CosmosDbSettings 
     {
         /// <summary>
         /// Gets or sets the Collection type
