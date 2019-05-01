@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{ cookiecutter.assembly_name }}.Api", "{{ cookiecutter.assembly_name }}.Api\{{ cookiecutter.assembly_name }}.Api.csproj", "{5FDD6E0D-C1B4-48E8-96D1-CBB11D0BC774}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{ cookiecutter.assembly_name }}.PerformanceTests", "{{ cookiecutter.assembly_name }}.PerformanceTests\{{ cookiecutter.assembly_name }}.PerformanceTests.csproj", "{E8AF31FC-229A-4DCB-B524-FFF1AFD4C0DB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{ cookiecutter.assembly_name }}.Api.PerformanceTests", "{{ cookiecutter.assembly_name }}.PerformanceTests\{{ cookiecutter.assembly_name }}.PerformanceTests.csproj", "{E8AF31FC-229A-4DCB-B524-FFF1AFD4C0DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{ cookiecutter.assembly_name }}.Test", "{{ cookiecutter.assembly_name }}.Test\{{ cookiecutter.assembly_name }}.Test.csproj", "{E8AF31FC-229A-4DCB-B524-FFF1AFD4C0DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{ cookiecutter.assembly_name }}.Api.Test", "{{ cookiecutter.assembly_name }}.Api.Test\{{ cookiecutter.assembly_name }}.Api.Test.csproj", "{7DBD7CA0-40FD-43F9-8D3F-96C2E2C0A58D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +23,10 @@ Global
 		{E8AF31FC-229A-4DCB-B524-FFF1AFD4C0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8AF31FC-229A-4DCB-B524-FFF1AFD4C0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8AF31FC-229A-4DCB-B524-FFF1AFD4C0DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DBD7CA0-40FD-43F9-8D3F-96C2E2C0A58D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DBD7CA0-40FD-43F9-8D3F-96C2E2C0A58D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DBD7CA0-40FD-43F9-8D3F-96C2E2C0A58D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DBD7CA0-40FD-43F9-8D3F-96C2E2C0A58D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
