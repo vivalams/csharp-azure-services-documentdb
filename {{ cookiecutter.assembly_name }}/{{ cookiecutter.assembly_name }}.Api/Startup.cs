@@ -19,30 +19,13 @@ namespace {{ cookiecutter.assembly_name }}.Api
     using AspNetCore.Hosting;
     using AspNetCore.Mvc;
     using Autofac;
-    using Builders;
-    using Clients;
     using Extensions.Configuration;
     using Extensions.DependencyInjection;
-    using Factories;
-    using Mappers;
     using Microsoft.ApplicationInsights;
     using Microsoft.Extensions.DependencyModel;
     using Microsoft.Extensions.Logging;
-    using Microsoft.LearningService.Common.Security;
-    using Microsoft.LearningService.DocumentDb;
-    using Microsoft.LearningService.EventBus;
-    using Microsoft.LearningService.EventBus.Interfaces;
-    using Microsoft.LearningService.ServiceBus;
-    using Microsoft.LearningService.ServiceBus.Configuration;
-    using Microsoft.LearningServices.LearnerRecords.Api.Configuration;
-    using Microsoft.LearningServices.LearnerRecords.Api.Events;
-    using Microsoft.LearningServices.LearnerRecords.Api.Helpers;
-    using Models;
-    using Models.GoalsAndTasks;
-    using Services;
-    using Settings;
-    using SharedServices.EventBus.Models.EventModels;
     using Swashbuckle.AspNetCore.Swagger;
+	using {{ cookiecutter.assembly_name }}.Api.Settings;
 
     /// <summary>
     /// Startup class for Learner Record endpoints
@@ -102,8 +85,8 @@ namespace {{ cookiecutter.assembly_name }}.Api
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "Learner Record service API",
-                    Description = "Learner Record service keeps tracks of all the events related to the user"
+                    Title = "{{ cookiecutter.assembly_name }} API",
+                    Description = "{{ cookiecutter.assembly_name }} keeps tracks of all the events related to the user"
                 });
 
                 c.IncludeXmlComments(this.GetXmlCommentsPath());
@@ -195,8 +178,8 @@ namespace {{ cookiecutter.assembly_name }}.Api
         /// <returns>Boolean of whether the assembly is used in this service</returns>
         private bool IsCandidateCompilationLibrary(RuntimeLibrary compilationLibrary)
         {
-            return compilationLibrary.Name.Contains("LearningService", System.StringComparison.OrdinalIgnoreCase) ||
-                    compilationLibrary.Dependencies.Any(d => d.Name.Contains("LearningService", System.StringComparison.OrdinalIgnoreCase));
+             return compilationLibrary.Name.Contains("{{ cookiecutter.assembly_name }}", System.StringComparison.OrdinalIgnoreCase) ||
+                    compilationLibrary.Dependencies.Any(d => d.Name.Contains("{{ cookiecutter.assembly_name }}", System.StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
