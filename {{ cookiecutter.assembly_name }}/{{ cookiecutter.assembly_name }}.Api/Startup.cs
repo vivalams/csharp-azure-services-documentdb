@@ -108,86 +108,6 @@ namespace {{ cookiecutter.assembly_name }}.Api
 
                 c.IncludeXmlComments(this.GetXmlCommentsPath());
             });
-
-            // The scheme is defined by us and we control the token validation. 
-            // In its current state the validation on service has been disabled.
-            // The token validation is handled by the API gateway before it reaches the services.
-            services.AddAuthentication(o =>
-            {
-                o.DefaultScheme = TokenSchemeName;
-            }).AddScheme<TokenAuthenticationOptions, TokenAuthenticationHandler>(TokenSchemeName, o => { });
-
-            // Registrations for DI
-            var config = this.BuildConfiguration();
-
-            services.AddTransient<IResourceSettings>((appServices) =>
-            {
-                return config.GetSection("Resources").Get<AppSettings>();
-            });
-
-            services.AddTransient<IServiceBusSettings>((serviceProvider) =>
-            {
-                return config.GetSection("EventBusConfig").Get<ServiceBusSettings>();
-            });
-
-            services.AddTransient<ProfileServiceClientSettings>((appServices) =>
-            {
-                return config.GetSection("ProfileServiceClient").Get<ProfileServiceClientSettings>();
-            });
-
-            // Add application insights
-            services.AddApplicationInsightsTelemetry(config.GetSection("ApplicationInsights:InstrumentationKey").Get<string>());
-            services.AddTransient<TelemetryClient>();
-
-            // Register Services
-            services.AddTransient<IGoalRecordService, GoalRecordService>();
-
-            // Register Helpers
-            services.AddTransient<IUserCompletableHelper, UserCompletableHelper>();
-            services.AddSingleton<IProfileServiceClient, ProfileServiceClient>();
-
-            // Register Builders
-            services.AddTransient<IDynamicQueryBuilder<LearnerRecord, LearnerRecordQueryParameters>, DynamicQueryBuilder<LearnerRecord, LearnerRecordQueryParameters>>();
-            services.AddTransient<IDynamicQueryBuilder<LearnerMappingRecord, LearnerRecordMappingQueryParameters>, DynamicQueryBuilder<LearnerMappingRecord, LearnerRecordMappingQueryParameters>>();
-
-            // Register Factory
-            services.AddSingleton<IDocumentDbClientFactory, DocumentClientFactory>();
-
-            // Register Mappers
-            services.AddTransient<ILearnerRecordMapper, LearnerRecordMapper>();
-            services.AddTransient<IMapper<GoalPathDto, GoalPathViewModel>, GoalPathMapper>();
-            services.AddTransient<IMapper<SubGoalDto, SubGoalViewModel>, SubGoalMapper>();
-            services.AddTransient<IMapper<TaskNodeDto, TaskNodeViewModel>, TaskNodeMapper>();
-            services.AddTransient<IMapper<TaskContentOptionDto, TaskContentOptionViewModel>, TaskContentOptionMapper>();
-
-            // Register Clients
-            services.AddSingleton<ILearnerRecordDocumentClient, LearnerRecordDocumentClient>((appServices) =>
-            {
-                var factory = (DocumentClientFactory)appServices.GetService(typeof(IDocumentDbClientFactory));
-
-                // The collection type is used in the factory to determine the appSettings to documentClient mapping
-                var learnerConfig = config.GetSection("CosmosDb-Learner").Get<CosmosDbSettings>();
-                learnerConfig.CollectionType = typeof(LearnerRecord).ToString();
-
-                return factory.BuildDocumentDbClient(learnerConfig) as LearnerRecordDocumentClient;
-            });
-
-            services.AddSingleton<ILearnerRecordMappingDocumentClient, LearnerRecordMappingDocumentClient>((appServices) =>
-            {
-                var factory = (DocumentClientFactory)appServices.GetService(typeof(IDocumentDbClientFactory));
-
-                // The collection type is used in the factory to determine the appSettings to documentClient mapping
-                var learnerConfig = config.GetSection("CosmosDb-Mapping").Get<CosmosDbSettings>();
-                learnerConfig.CollectionType = typeof(LearnerMappingRecord).ToString();
-
-                return factory.BuildDocumentDbClient(learnerConfig) as LearnerRecordMappingDocumentClient;
-            });
-
-            services.AddSingleton<IGoalAndTasksClient, GoalAndTasksClient>();
-            services.AddSingleton<IEventTrackingClient, EventTrackingClient>();
-            services.AddSingleton<AccountCloseEventTopicClient>();
-
-            this.AddEventBus(services, config);
         }
 
         /// <summary>
@@ -245,14 +165,7 @@ namespace {{ cookiecutter.assembly_name }}.Api
         /// <param name="app">Application builder instance</param>
         protected virtual void ConfigureEventBus(IApplicationBuilder app)
         {
-            var eventBus = app.ApplicationServices.GetService<IEventBus>();
-
-            if (eventBus != null)
-            {
-                // Subscribe to the events
-                eventBus.Subscribe<AccountLinkLRStartedEvent, AccountLinkLRStartedEventHandler>();
-                eventBus.Subscribe<AccountCloseRequestEvent, AccountCloseRequestEventHandler>();
-            }
+          
         }
 
         /// <summary>
@@ -329,27 +242,9 @@ namespace {{ cookiecutter.assembly_name }}.Api
         /// <param name="config">Configuration</param>
         private void AddEventBus(IServiceCollection services, IConfiguration config)
         {
-            // TODO: When disabled use storage emulator queue
-            if (config.GetValue<bool>("AzureServiceBusEnabled"))
-            {
-                services.AddSingleton<IEventBus, EventBusServiceBus>(sp =>
-                {
-                    var settings = sp.GetRequiredService<IServiceBusSettings>();
-                    var iLifetimeScope = sp.GetRequiredService<ILifetimeScope>();
-                    var logger = sp.GetRequiredService<ILogger<Startup>>();
-                    var eventBusSubcriptionsManager = sp.GetRequiredService<IEventBusSubscriptionsManager>();
 
-                    return new EventBusServiceBus(
-                        settings,
-                        eventBusSubcriptionsManager,
-                        logger,
-                        iLifetimeScope);
-                });
-            }
-
-            services.AddSingleton<IEventBusSubscriptionsManager, EventBusSubscriptionsManager>();
-            services.AddTransient<AccountLinkLRStartedEventHandler>();
-            services.AddTransient<AccountCloseRequestEventHandler>();
         }
+	
+     
     }
 }
