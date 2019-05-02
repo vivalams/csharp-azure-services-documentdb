@@ -1,4 +1,7 @@
 {
   "assembly_name": "Microsoft.ProjectName",
-  "root_namespace": "{{ cookiecutter.assembly_name }}"
+  "root_namespace": "{{ cookiecutter.assembly_name }}",
+  "service_name": "{{ cookiecutter.service_name }}",
+  "eventhub_name": "{{ cookiecutter.eventhub_name }}",
+  "controller_name":"{{ cookiecutter.controlller_name }}"
 }

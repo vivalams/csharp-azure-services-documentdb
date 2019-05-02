@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Microsoft.LearningServices.LearnerRecords.Api": {
+    "{{ cookiecutter.assembly_name }}.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

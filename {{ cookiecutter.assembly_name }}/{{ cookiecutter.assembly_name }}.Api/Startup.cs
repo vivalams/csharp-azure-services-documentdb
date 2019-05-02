@@ -28,7 +28,7 @@ namespace {{ cookiecutter.assembly_name }}.Api
 	using {{ cookiecutter.assembly_name }}.Api.Settings;
 
     /// <summary>
-    /// Startup class for Learner Record endpoints
+    /// Startup class for {{ cookiecutter.assembly_name }} endpoints
     /// </summary>
     [ExcludeFromCodeCoverage]
     public class Startup
@@ -85,8 +85,8 @@ namespace {{ cookiecutter.assembly_name }}.Api
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "{{ cookiecutter.assembly_name }} API",
-                    Description = "{{ cookiecutter.assembly_name }} keeps tracks of all the events related to the user"
+                    Title = "{{ cookiecutter.service_name }} API",
+                    Description = "{{ cookiecutter.assembly_name }} keeps tracks of all the events related to the {{ cookiecutter.service_name }}"
                 });
 
                 c.IncludeXmlComments(this.GetXmlCommentsPath());
@@ -120,7 +120,7 @@ namespace {{ cookiecutter.assembly_name }}.Api
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Learner Record API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "{{ cookiecutter.service_name }} API V1");
             });
 
             app.UseMvc();

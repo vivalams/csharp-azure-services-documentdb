@@ -25,7 +25,7 @@
         </member>
         <member name="T:{{ cookiecutter.assembly_name }}.Api.Startup">
             <summary>
-            Startup class for Learner Record endpoints
+            Startup class for {{ cookiecutter.service_name }} endpoints
             </summary>
         </member>
         <member name="F:{{ cookiecutter.assembly_name }}.Api.Startup.TokenSchemeName">
