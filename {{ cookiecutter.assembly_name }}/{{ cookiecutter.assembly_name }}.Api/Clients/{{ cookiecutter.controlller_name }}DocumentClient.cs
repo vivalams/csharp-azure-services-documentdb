@@ -51,6 +51,8 @@ namespace {{ cookiecutter.assembly_name }}.Api.Clients
         /// <param name="partitionKey">The partition key for {{ cookiecutter.controlller_name }} records.</param>
         /// <returns>Task&lt;{{ cookiecutter.controlller_name }} Record&gt;.</returns>
         /// <exception cref="System.ArgumentNullException">document Id</exception>
+        [HttpGet]
+        [Route("query")]
         public async Task<{{ cookiecutter.controlller_name }}> GetDocumentAsync(string documentId, string partitionKey)
         {
              if (string.IsNullOrEmpty(documentId))

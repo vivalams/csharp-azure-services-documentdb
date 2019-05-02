@@ -1,13 +1,13 @@
 //  -----------------------------------------------------------------------
 //  
-//  <copyright file="ILearnerRecordDocumentClient.cs" company="Microsoft">
+//  <copyright file="I{{ cookiecutter.controlller_name }}DocumentClient.cs" company="Microsoft">
 //  
 //  Copyright (c) Microsoft. All rights reserved.
 // 
 //  </copyright>
 // 
 //  -----------------------------------------------------------------------
-namespace Microsoft.LearningServices.LearnerRecords.Api.Clients
+namespace {{ cookiecutter.assembly_name }}.Api.Clients
 {
     using System;
     using System.Collections.Generic;

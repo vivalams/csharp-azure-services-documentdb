@@ -18,9 +18,9 @@ namespace {{ cookiecutter.assembly_name }}.Api.Controllers
     using Microsoft.Azure.Documents;
 
      /// <summary>
-    /// Learner Record Controller
+    /// {{ cookiecutter.controlller_name }} Controller
     /// </summary>
-    /// <seealso cref="Microsoft.LearningServices.LearnerRecords.Api.Controllers.BaseController" />
+    /// <seealso cref="{{ cookiecutter.assembly_name }}.Api.Controllers.BaseController" />
     [Route("api/[controller]")]
     public class {{ cookiecutter.controlller_name }}Controller : BaseController
     {
