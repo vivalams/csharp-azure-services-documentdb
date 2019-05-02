@@ -23,9 +23,10 @@ namespace Microsoft.LearningServices.LearnerRecords.Api.Clients
         /// <summary>
         /// Test Get Method
         /// </summary>
-        /// <param name="testValue">Test value please change it later  </param>
+        /// <param name="documentId">The document identifier.</param>
+        /// <param name="partitionKey">The partitionKey for {{ cookiecutter.controlller_name }}  </param>
         /// <returns>The {{ cookiecutter.controlller_name }}</returns>
-        Task<{{ cookiecutter.controlller_name }}> GetTestLearnerRecords(string testValue);
+        Task<{{ cookiecutter.controlller_name }}> GetDocumentAsync(string documentId, string partitionKey);
     }
 
 }
