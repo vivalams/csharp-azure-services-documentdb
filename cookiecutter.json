@@ -1,7 +1,7 @@
 {
   "assembly_name": "Microsoft.ProjectName",
   "root_namespace": "{{ cookiecutter.assembly_name }}",
-  "api_definition": "{{ cookiecutter.api_definition }}",
+  "author": "",
   "eventhub_name": "{{ cookiecutter.eventhub_name }}",
   "controller_name":"{{ cookiecutter.controlller_name }}"
 }
